@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Mahasiswa</title>
-</head>
+{% extends "layout.html" %}
+{% block content %}
 <style>
     table,
     th,
@@ -16,35 +9,32 @@
 
 </style>
 
-<body>
-    <h2 style="text-align:center"> Informasi Mahasiswa </h2>
-    <table style="margin: 0px auto;">
-        <thead>
-            <tr>
-                <th>ID Mahasiswa</th>
-                <th>Nama</th>
-                <th>Fakultas</th>
-                <th>Edit</th>
-                <th>Hapus</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for mahasiswa in mahasiswas %}
-            <tr>
-                <td>{{mahasiswa.Mahasiswa_id}}</td>
-                <td>{{mahasiswa.Nama}}</td>
-                <td>{{mahasiswa.Fakultas}}</td>
-                <td>
-                    <a href="/update/{{mahasiswa.pk}}">Update</a>
-                </td>
-                <td>
-                    <a href="/delete/{{mahasiswa.pk}}">Delete</a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <a href="/create" class="button">Tambah</a>
-</body>
-
-</html>
+<h2 style="text-align:center"> Informasi Mahasiswa </h2>
+<table style="margin: 0px auto;">
+    <thead>
+        <tr>
+            <th>ID Mahasiswa</th>
+            <th>Nama</th>
+            <th>Fakultas</th>
+            <th>Edit</th>
+            <th>Hapus</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for mahasiswa in mahasiswas %}
+        <tr>
+            <td>{{mahasiswa.Mahasiswa_id}}</td>
+            <td>{{mahasiswa.Nama}}</td>
+            <td>{{mahasiswa.Fakultas}}</td>
+            <td>
+                <a href="/update/{{mahasiswa.pk}}">Update</a>
+            </td>
+            <td>
+                <a href="/delete/{{mahasiswa.pk}}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="/create" class="button">Tambah</a>
+{% endblock %}
